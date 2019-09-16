@@ -1,12 +1,17 @@
 import base64
 from PIL import Image, ImageSequence
 import numpy as np
-
 from libtiff import TIFF
 
+
+#--------------------------------------------------------#
+                # LiffTiff
+#--------------------------------------------------------#
 file = TIFF.open ('18340.bin', 'r')
 for i, image in enumerate(file.iter_images()):
    Image.fromarray(image).save("png/page%d.png" % i)
+
+
 
 
 #--------------------------------------------------------#
@@ -31,7 +36,3 @@ for i, image in enumerate(file.iter_images()):
     #imagen_recortada = page.crop(region)
     #imagen_recortada.show()
     #imagen_recortada.save("png/page%d.png" % i)
-
-#--------------------------------------------------------#
-                # LiffTiff
-#--------------------------------------------------------#
