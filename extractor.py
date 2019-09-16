@@ -4,6 +4,11 @@ import numpy as np
 
 from libtiff import TIFF
 
+file = TIFF.open ('18340.bin', 'r')
+for i, image in enumerate(file.iter_images()):
+   Image.fromarray(image).save("png/page%d.png" % i)
+
+
 #--------------------------------------------------------#
             # Trabajando con Base 64 y PILL
 #--------------------------------------------------------#
@@ -30,7 +35,3 @@ from libtiff import TIFF
 #--------------------------------------------------------#
                 # LiffTiff
 #--------------------------------------------------------#
-
-file = TIFF.open ('18340.bin', 'r')
-for i, image in enumerate(file.iter_images()):
-   Image.fromarray(image).save("png/page%d.png" % i)
